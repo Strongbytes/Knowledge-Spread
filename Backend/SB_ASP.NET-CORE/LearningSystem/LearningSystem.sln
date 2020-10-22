@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningSystem.Module.UserP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningSystem.Module.LearningPath.Unit.Tests", "tests\LearningSystem.Module.LearningPath.Unit.Tests\LearningSystem.Module.LearningPath.Unit.Tests.csproj", "{99BF4BDA-6D46-4F1C-8BC1-CED6E0D4CE99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningSystem.Razor.Web", "src\LearningSystem.Razor.Web\LearningSystem.Razor.Web.csproj", "{C115BF7C-577B-4EB4-9BB9-CF007E1050EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{99BF4BDA-6D46-4F1C-8BC1-CED6E0D4CE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BF4BDA-6D46-4F1C-8BC1-CED6E0D4CE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BF4BDA-6D46-4F1C-8BC1-CED6E0D4CE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C115BF7C-577B-4EB4-9BB9-CF007E1050EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C115BF7C-577B-4EB4-9BB9-CF007E1050EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C115BF7C-577B-4EB4-9BB9-CF007E1050EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C115BF7C-577B-4EB4-9BB9-CF007E1050EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{25060D82-3F47-47D7-9073-DADA71C98CC3} = {D0888006-0248-4C89-921F-40B935556A5E}
 		{5C830C78-1CA8-4431-8A17-2E94C7AF29A5} = {1EC66EA3-C270-4FDB-81DB-CF242D162E97}
 		{99BF4BDA-6D46-4F1C-8BC1-CED6E0D4CE99} = {1EC66EA3-C270-4FDB-81DB-CF242D162E97}
+		{C115BF7C-577B-4EB4-9BB9-CF007E1050EC} = {A3866984-0A6B-49DA-A2BE-64DFEB16697F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3AAEEA3-A194-41DD-8ED8-16458E7A1B85}
