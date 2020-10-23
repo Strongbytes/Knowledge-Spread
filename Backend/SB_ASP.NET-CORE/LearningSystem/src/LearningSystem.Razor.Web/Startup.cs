@@ -1,23 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
-using LearningSystem.Web.Filters;
+using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
+using LearningSystem.Module.LearningPath;
+using LearningSystem.Module.UserProfile;
+using LearningSystem.Razor.Web.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using AutoMapper;
-using LearningSystem.Module.UserProfile;
-using LearningSystem.Module.LearningPath;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using LearningSystem.Web;
-using Microsoft.AspNetCore.Mvc;
 
-namespace LearningSystem
+namespace LearningSystem.Razor.Web
 {
     public class Startup
     {
@@ -33,31 +34,14 @@ namespace LearningSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddRazorPages();
 
-            services.AddApiVersioning(options => {
-                options.DefaultApiVersion = new ApiVersion(1, 0);
-                options.ReportApiVersions = true;
-            });
-            services.AddVersionedApiExplorer(
-                 options =>
-                 {
-                     // note: the specified format code will format the version as "'v'major[.minor][-status]"
-                     options.GroupNameFormat = "'v'VVV";
-                     // note: this option is only necessary when versioning by url segment.
-                     options.SubstituteApiVersionInUrl = true;
-                 });
-            services.AddSwaggerGen();
-            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-            services.AddMvc(options =>
-                {
-                    options.EnableEndpointRouting = false;
-                    options.Filters.Add(typeof(BusinessExceptionFilter));
-                })
-                .SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
             services.AddSingleton(typeof(IAsyncActionFilter), typeof(BusinessExceptionFilter));
         }
 
@@ -70,6 +54,7 @@ namespace LearningSystem
                     new UserProfileMapper(),
                 });
             }));
+
             builder.Register<IMapper>(ctx => new Mapper(ctx.Resolve<AutoMapper.IConfigurationProvider>(), ctx.Resolve))
                 .InstancePerDependency();
 
@@ -84,11 +69,17 @@ namespace LearningSystem
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
-            // register container dependencies
             AutofacContainer = app.ApplicationServices.GetAutofacRoot();
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -96,17 +87,8 @@ namespace LearningSystem
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.RoutePrefix = "swagger";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Learning System (v1)");
-            });
-
-            app.UseMvc();
         }
     }
 }
