@@ -8,6 +8,7 @@ This is using ASP.NET Core with:
   - Simplifying Development and Separating Concerns with MediatR
   - CQRS with MediatR and AutoMapper
   - Thin Controllers with CQRS and MediatR
+* Unit of Work with Repository pattern
 * AutoMapper
 * Fluent Validation
 
@@ -16,7 +17,7 @@ Install the .NET Core SDK and lots of documentation: https://www.microsoft.com/n
 Documentation for ASP.NET Core: https://docs.microsoft.com/en-us/aspnet/core/
 
 # Swagger URL
-http://localhost:5000/swagger
+https://localhost:5555/swagger
 
 # Layers inside the application
 - Controllers layer ( REST API Web adapters, Jobs )

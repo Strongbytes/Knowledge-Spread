@@ -2,13 +2,16 @@
 using LearningSystem.Module.LearningPaths.Application.Queries.GetLearningPath;
 using LearningSystem.Module.LearningPaths.Domain.Models;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Net.Mime;
 using System.Threading.Tasks;
 
 namespace LearningSystem.Controllers
 {
     [ApiController]
+    [Produces(MediaTypeNames.Application.Json)]
     [Route("[controller]")]
     public class LearningPathsController : ControllerBase
     {
@@ -20,21 +23,34 @@ namespace LearningSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<LearningPathDomainModel> Get(CreateLearningPathRequestModel model)
+        [ProducesResponseType(typeof(CreateLearningPathResponseModel), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Create(CreateLearningPathRequestModel model)
         {
-            return await _mediator.Send(new CreateLearningPathCommand(model));
+            CreateLearningPathResponseModel newEntity = await _mediator.Send(new CreateLearningPathCommand(model));
+            return CreatedAtAction(nameof(Get), new { id = newEntity.Id }, newEntity);
         }
 
         [HttpGet("{id}")]
-        public async Task<LearningPathDomainModel> Get(int id)
+        [ProducesResponseType(typeof(LearningPathDomainModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Get(int id)
         {
-            return await _mediator.Send(new GetLearningPathByIdQuery(id));
+            LearningPathDomainModel learningPath = await _mediator.Send(new GetLearningPathByIdQuery(id));
+
+            if (learningPath == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(learningPath);
         }
 
         [HttpGet]
-        public async Task<IList<LearningPathDomainModel>> GetAll()
+        [ProducesResponseType(typeof(List<LearningPathDomainModel>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll()
         {
-            return await _mediator.Send(new GetAllLearningPathsQuery());
+            return Ok(await _mediator.Send(new GetAllLearningPathsQuery()));
         }
     }
 }
