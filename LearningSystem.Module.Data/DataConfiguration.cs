@@ -8,7 +8,7 @@ namespace LearningSystem.Module.Data
 
         public DataConfiguration(IConfiguration configuration)
         {
-            _configuration = configuration.GetSection("Modules:DataModule");
+            _configuration = configuration.GetSection("Modules:Data");
         }
 
         public string GetDatabaseConnectionString()

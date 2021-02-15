@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LearningSystem.Module.LearningPaths.Application.Commands.CreateLearningPath
+namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create.Models
 {
     public class CreateLearningPathRequestModel
     {

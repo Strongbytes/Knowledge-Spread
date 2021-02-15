@@ -2,5 +2,6 @@
 {
     public abstract class BaseDomainResponseModel
     {
+        public int Id { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using LearningSystem.Module.LearningPaths.Application.Commands.CreateLearningPath;
+using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create.Models;
 
 namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create.Validators
 {
@@ -7,8 +7,6 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths
     {
         public CreateLearningModelValidator()
         {
-            RuleFor(x => x.Title).NotNull();
-
             RuleFor(x => x.Platform).MinimumLength(5).MaximumLength(99);
         }
     }

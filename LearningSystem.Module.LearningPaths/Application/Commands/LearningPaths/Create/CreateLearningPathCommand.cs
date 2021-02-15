@@ -1,11 +1,13 @@
-﻿using MediatR;
+﻿using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create.Models;
+using LearningSystem.Module.LearningPaths.Domain.Models;
+using MediatR;
 using System;
 
-namespace LearningSystem.Module.LearningPaths.Application.Commands.CreateLearningPath
+namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create
 {
-    public class CreateLearningPathCommand : IRequest<CreateLearningPathResponseModel>
+    public class CreateLearningPathCommand : IRequest<LearningPathDomainModel>
     {
-        public CreateLearningPathRequestModel Model { get; }
+        internal CreateLearningPathRequestModel Model { get; }
 
         public CreateLearningPathCommand(CreateLearningPathRequestModel model)
         {

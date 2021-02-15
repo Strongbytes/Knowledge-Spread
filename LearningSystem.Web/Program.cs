@@ -1,5 +1,5 @@
-using System.Threading.Tasks;
 using Autofac.Extensions.DependencyInjection;
+using LearningSystem.Module.Data.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -9,7 +9,7 @@ namespace LearningSystem
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().CreateAndMigrateStorageData().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
