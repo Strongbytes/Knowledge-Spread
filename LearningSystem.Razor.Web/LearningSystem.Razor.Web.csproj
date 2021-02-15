@@ -12,8 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LearningSystem.Module.LearningPath\LearningSystem.Module.LearningPath.csproj" />
-    <ProjectReference Include="..\LearningSystem.Module.UserProfile\LearningSystem.Module.UserProfile.csproj" />
+    <ProjectReference Include="..\LearningSystem.Module.LearningPaths\LearningSystem.Module.LearningPaths.csproj" />
   </ItemGroup>
 
 </Project>

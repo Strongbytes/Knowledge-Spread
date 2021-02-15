@@ -1,4 +1,5 @@
 ﻿using LearningSystem.Module.LearningPath.Application.Queries.GetLearningPath;
+using LearningSystem.Module.LearningPath.Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -19,7 +20,7 @@ namespace LearningSystem.Razor.Web.Pages
             _mediator = mediator;
         }
 
-        public IList<LearningPathModel> LearningPathModels { get; set; }
+        public IList<TutorialDomainModel> LearningPathModels { get; set; }
 
         public async Task OnGetAsync()
         {

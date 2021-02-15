@@ -8,16 +8,24 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.4.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.0.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.11" />    
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.11" />    
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.6.3" /> 
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LearningSystem.Module.LearningPath\LearningSystem.Module.LearningPath.csproj" />
-    <ProjectReference Include="..\LearningSystem.Module.UserProfile\LearningSystem.Module.UserProfile.csproj" />
+    <ProjectReference Include="..\LearningSystem.Module.LearningPaths\LearningSystem.Module.LearningPaths.csproj" />
   </ItemGroup>
 
 

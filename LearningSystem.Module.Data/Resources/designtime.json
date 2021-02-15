@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "data source=localhost;initial catalog=LearningSystem;persist security info=True;Integrated Security=SSPI;MultipleActiveResultSets=true"
+  }
+}
