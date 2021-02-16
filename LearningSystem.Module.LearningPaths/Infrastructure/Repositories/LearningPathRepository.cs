@@ -5,9 +5,9 @@ using LearningSystem.Module.LearningPaths.Domain.Repositories;
 
 namespace LearningSystem.Module.LearningPaths.Infrastructure.Repositories
 {
-    internal class LearningRepository : BaseRepository<LearningPath>, ILearningPathRepository
+    internal class LearningPathRepository : BaseRepository<LearningPath>, ILearningPathRepository
     {
-        public LearningRepository(ApplicationDbContext context) : base(context)
+        public LearningPathRepository(ApplicationDbContext context) : base(context)
         {
         }
     }
