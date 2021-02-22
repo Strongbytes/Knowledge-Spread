@@ -6,9 +6,9 @@ namespace LearningSystem.Module.LearningPaths
     {
         private readonly IConfigurationSection _configuration;
 
-        public LearningPathsConfiguration(IConfigurationSection configuration)
+        public LearningPathsConfiguration(IConfiguration configuration)
         {
-            _configuration = configuration;
+            _configuration = configuration.GetSection("Modules:LearningPaths");
         }
 
         public string GetThirdPartyServiceClientId()

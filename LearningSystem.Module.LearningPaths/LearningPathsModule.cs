@@ -52,7 +52,7 @@ namespace LearningSystem.Module.LearningPaths
         {
             builder.RegisterType<ThirdPartyService>()
                    .As<IThirdPartyService>()
-                   .InstancePerLifetimeScope();
+                   .InstancePerDependency();
         }
     }
 }
