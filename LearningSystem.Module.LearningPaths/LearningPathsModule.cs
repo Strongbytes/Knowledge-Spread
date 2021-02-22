@@ -5,6 +5,7 @@ using LearningSystem.Module.LearningPaths.Domain;
 using LearningSystem.Module.LearningPaths.Domain.Repositories;
 using LearningSystem.Module.LearningPaths.Infrastructure;
 using LearningSystem.Module.LearningPaths.Infrastructure.Repositories;
+using LearningSystem.Module.LearningPaths.Services;
 
 namespace LearningSystem.Module.LearningPaths
 {
@@ -21,6 +22,8 @@ namespace LearningSystem.Module.LearningPaths
             RegisterConfigurations(builder);
 
             RegisterUnitOfWorkRepositories(builder);
+
+            RegisterServices(builder);
         }
 
         private static void RegisterConfigurations(ContainerBuilder builder)
@@ -42,6 +45,13 @@ namespace LearningSystem.Module.LearningPaths
 
             builder.RegisterType<UnitOfWork>()
                    .As<IUnitOfWork>()
+                   .InstancePerLifetimeScope();
+        }
+
+        private static void RegisterServices(ContainerBuilder builder)
+        {
+            builder.RegisterType<ThirdPartyService>()
+                   .As<IThirdPartyService>()
                    .InstancePerLifetimeScope();
         }
     }

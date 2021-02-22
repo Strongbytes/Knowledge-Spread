@@ -10,5 +10,15 @@ namespace LearningSystem.Module.LearningPaths
         {
             _configuration = configuration;
         }
+
+        public string GetThirdPartyServiceClientId()
+        {
+            return _configuration["ThirdPartyProvider:ClientId"];
+        }
+
+        public string GetThirdPartyServiceClientSecret()
+        {
+            return _configuration["ThirdPartyProvider:ClientSecret"];
+        }
     }
 }
