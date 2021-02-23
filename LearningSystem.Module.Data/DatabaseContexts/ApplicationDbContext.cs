@@ -37,12 +37,12 @@ namespace LearningSystem.Module.Data.DatabaseContexts
                 switch (changedEntity.State)
                 {
                     case EntityState.Added:
-                        entity.CreatetOn = now;
+                        entity.CreatedOn = now;
                         entity.LastModifiedOn = now;
                         break;
 
                     case EntityState.Modified:
-                        Entry(entity).Property(x => x.CreatetOn).IsModified = false;
+                        Entry(entity).Property(x => x.CreatedOn).IsModified = false;
                         entity.LastModifiedOn = now;
                         break;
 

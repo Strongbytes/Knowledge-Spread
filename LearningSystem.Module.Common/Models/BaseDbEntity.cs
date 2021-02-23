@@ -11,7 +11,7 @@ namespace LearningSystem.Module.Common.Models
         public int Id { get; set; }
 
         [Required, DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public DateTime CreatetOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         [Required, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public DateTime LastModifiedOn { get; set; }
