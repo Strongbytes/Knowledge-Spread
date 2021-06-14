@@ -1,0 +1,18 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Update.Models
+{
+    public class UpdateLearningPathRequestModel
+    {
+        public string Title { get; set; }
+
+        public string Platform { get; set; }
+
+        [Required]
+        public DateTime CreatedOn { get; set; }
+
+        [Required]
+        public DateTime LastModifiedOn { get; set; }
+    }
+}
