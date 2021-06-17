@@ -1,11 +1,13 @@
+using LearningSystem.Module.Common.Infrastructure.Pagination;
+using LearningSystem.Module.Common.Models;
 using LearningSystem.Module.LearningPaths;
 using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create;
 using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create.Models;
 using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Delete;
 using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Update;
 using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Update.Models;
-using LearningSystem.Module.LearningPaths.Application.Queries.GetAllLearningPaths;
 using LearningSystem.Module.LearningPaths.Application.Queries.GetLearningPathById;
+using LearningSystem.Module.LearningPaths.Application.Queries.GetPaginatedLearningPaths;
 using LearningSystem.Module.LearningPaths.Domain;
 using LearningSystem.Module.LearningPaths.Domain.Models;
 using LearningSystem.Web.Controllers;
@@ -31,10 +33,10 @@ namespace LearningSystem.Web.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<LearningPathDomainModel>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAll()
+        [ProducesResponseType(typeof(IPaginatedDataResponse<LearningPathDomainModel>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetPaginated(PaginatedDataQuery paginatedDataQuery)
         {
-            return Ok(await _mediator.Send(new GetAllLearningPathsQuery()));
+            return Ok(await _mediator.Send(new GetPaginatedLearningPathsQuery(paginatedDataQuery)));
         }
 
         [HttpGet("{id}")]
