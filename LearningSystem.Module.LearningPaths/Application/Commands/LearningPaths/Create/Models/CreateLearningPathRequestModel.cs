@@ -5,14 +5,14 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths
 {
     public class CreateLearningPathRequestModel
     {
+        [Required]
+        public DateTime CreatedOn { get; set; }
+
+        [Required]
+        public DateTime LastModifiedOn { get; set; }
+
         public string Title { get; set; }
 
         public string Platform { get; set; }
-
-        [Required]
-        public DateTime BaseDbEntityCreatedOn { get; set; }
-
-        [Required]
-        public DateTime BaseDbEntityLastModifiedOn { get; set; }
     }
 }
