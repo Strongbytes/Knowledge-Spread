@@ -1,10 +1,10 @@
-﻿using Autofac;
-using LearningSystem.Module.Common.Extensions;
-using LearningSystem.Module.Data;
+using Autofac;
 using LearningSystem.Module.LearningPaths.Domain;
 using LearningSystem.Module.LearningPaths.Domain.Repositories;
 using LearningSystem.Module.LearningPaths.Infrastructure;
 using LearningSystem.Module.LearningPaths.Infrastructure.Repositories;
+using LearningSystem.Module.Common.Extensions;
+using LearningSystem.Module.Data;
 using LearningSystem.Module.LearningPaths.Services;
 
 namespace LearningSystem.Module.LearningPaths
@@ -14,45 +14,28 @@ namespace LearningSystem.Module.LearningPaths
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-
-            builder.RegisterCommandHandlersAndValidators(ThisAssembly);
-
-            builder.RegisterProfile(ThisAssembly);
-
-            RegisterConfigurations(builder);
-
             RegisterUnitOfWorkRepositories(builder);
-
+            builder.RegisterCommandHandlersAndValidators(ThisAssembly);
+            builder.RegisterProfile(ThisAssembly);
+            RegisterConfigurations(builder);
             RegisterServices(builder);
         }
 
         private static void RegisterConfigurations(ContainerBuilder builder)
         {
-            builder.RegisterType<LearningPathsConfiguration>()
-                   .AsSelf()
-                   .SingleInstance();
-
-            builder.RegisterType<DataConfiguration>()
-                   .AsSelf()
-                   .SingleInstance();
-        }
-
-        private static void RegisterUnitOfWorkRepositories(ContainerBuilder builder)
-        {
-            builder.RegisterType<LearningPathsRepository>()
-                   .As<ILearningPathsRepository>()
-                   .InstancePerLifetimeScope();
-
-            builder.RegisterType<UnitOfWork>()
-                   .As<IUnitOfWork>()
-                   .InstancePerLifetimeScope();
+            builder.RegisterType<LearningPathsConfiguration>().AsSelf().SingleInstance();
+            builder.RegisterType<DataConfiguration>().AsSelf().SingleInstance();
         }
 
         private static void RegisterServices(ContainerBuilder builder)
         {
-            builder.RegisterType<ThirdPartyService>()
-                   .As<IThirdPartyService>()
-                   .InstancePerDependency();
+            builder.RegisterType<ThirdPartyService>().As<IThirdPartyService>().InstancePerDependency();
+        }
+
+        private void RegisterUnitOfWorkRepositories(ContainerBuilder builder)
+        {
+            builder.RegisterType<LearningPathsRepository>().As<ILearningPathsRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
         }
     }
 }

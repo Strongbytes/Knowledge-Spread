@@ -10,9 +10,9 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths
         public string Platform { get; set; }
 
         [Required]
-        public DateTime CreatedOn { get; set; }
+        public DateTime BaseDbEntityCreatedOn { get; set; }
 
         [Required]
-        public DateTime LastModifiedOn { get; set; }
+        public DateTime BaseDbEntityLastModifiedOn { get; set; }
     }
 }

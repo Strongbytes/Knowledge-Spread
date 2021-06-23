@@ -13,9 +13,9 @@ namespace LearningSystem.Module.LearningPaths.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        public DateTime CreatedOn { get; set; }
+        public DateTime BaseDbEntityCreatedOn { get; set; }
 
         [Required]
-        public DateTime LastModifiedOn { get; set; }
+        public DateTime BaseDbEntityLastModifiedOn { get; set; }
     }
 }
