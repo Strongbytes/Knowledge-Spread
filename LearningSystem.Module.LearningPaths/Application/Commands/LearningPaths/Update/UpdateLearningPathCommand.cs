@@ -7,14 +7,14 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths
 {
     public class UpdateLearningPathCommand : IRequest<LearningPathDomainModel>
     {
-        internal UpdateLearningPathRequestModel Model { get; set; }
+        internal UpdateLearningPathRequestModel Model { get; }
 
-        internal int Id { get; set; }
+        internal int Id { get; }
 
         public UpdateLearningPathCommand(int id, UpdateLearningPathRequestModel model)
         {
             Id = id;
-            Model = model;
+            Model = model ?? throw new ArgumentNullException(nameof(model));
         }
     }
 }

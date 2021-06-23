@@ -7,11 +7,11 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths
 {
     public class CreateLearningPathCommand : IRequest<LearningPathDomainModel>
     {
-        internal CreateLearningPathRequestModel Model { get; set; }
+        internal CreateLearningPathRequestModel Model { get; }
 
         public CreateLearningPathCommand(CreateLearningPathRequestModel model)
         {
-            Model = model;
+            Model = model ?? throw new ArgumentNullException(nameof(model));
         }
     }
 }

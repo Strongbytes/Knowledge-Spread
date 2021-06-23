@@ -6,7 +6,7 @@ namespace LearningSystem.Module.LearningPaths.Application.Queries.GetLearningPat
 {
     public class GetLearningPathByIdQuery : IRequest<LearningPathDomainModel>
     {
-        internal int Id { get; set; }
+        internal int Id { get; }
 
         public GetLearningPathByIdQuery(int id)
         {

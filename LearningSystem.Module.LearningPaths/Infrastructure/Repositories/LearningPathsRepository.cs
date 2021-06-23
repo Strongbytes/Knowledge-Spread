@@ -1,13 +1,13 @@
-﻿using LearningSystem.Module.Common.Infrastructure;
+using LearningSystem.Module.Common.Infrastructure;
 using LearningSystem.Module.Data.DatabaseContexts;
 using LearningSystem.Module.Data.Models;
 using LearningSystem.Module.LearningPaths.Domain.Repositories;
 
 namespace LearningSystem.Module.LearningPaths.Infrastructure.Repositories
 {
-    internal class LearningPathRepository : BaseRepository<LearningPath>, ILearningPathRepository
+    internal class LearningPathsRepository : BaseRepository<LearningPath>, ILearningPathsRepository
     {
-        public LearningPathRepository(ApplicationDbContext context) : base(context)
+        public LearningPathsRepository(ApplicationDbContext context): base(context)
         {
         }
     }

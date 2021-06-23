@@ -1,5 +1,6 @@
 using LearningSystem.Module.Common.Infrastructure.Pagination;
 using LearningSystem.Module.Common.Models;
+using LearningSystem.Module.Data.DatabaseContexts;
 using LearningSystem.Module.LearningPaths;
 using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create;
 using LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths.Create.Models;
@@ -10,6 +11,9 @@ using LearningSystem.Module.LearningPaths.Application.Queries.GetLearningPathByI
 using LearningSystem.Module.LearningPaths.Application.Queries.GetPaginatedLearningPaths;
 using LearningSystem.Module.LearningPaths.Domain;
 using LearningSystem.Module.LearningPaths.Domain.Models;
+using LearningSystem.Module.LearningPaths.Domain.Repositories;
+using LearningSystem.Module.LearningPaths.Infrastructure;
+using LearningSystem.Module.LearningPaths.Infrastructure.Repositories;
 using LearningSystem.Web.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Http;

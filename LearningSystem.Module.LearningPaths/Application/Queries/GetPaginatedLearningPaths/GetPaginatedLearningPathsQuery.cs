@@ -7,11 +7,11 @@ namespace LearningSystem.Module.LearningPaths.Application.Queries.GetPaginatedLe
 {
     public class GetPaginatedLearningPathsQuery : IRequest<IPaginatedDataResponse<LearningPathDomainModel>>
     {
-        internal IPaginatedDataQuery PaginatedDataQuery { get; set; }
+        internal IPaginatedDataQuery PaginatedDataQuery { get; }
 
         public GetPaginatedLearningPathsQuery(IPaginatedDataQuery paginatedDataQuery)
         {
-            PaginatedDataQuery = paginatedDataQuery;
+            PaginatedDataQuery = paginatedDataQuery ?? throw new ArgumentNullException(nameof(paginatedDataQuery));
         }
     }
 }

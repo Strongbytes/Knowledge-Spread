@@ -5,7 +5,7 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.LearningPaths
 {
     public class DeleteLearningPathCommand : IRequest<Unit>
     {
-        internal int Id { get; set; }
+        internal int Id { get; }
 
         public DeleteLearningPathCommand(int id)
         {

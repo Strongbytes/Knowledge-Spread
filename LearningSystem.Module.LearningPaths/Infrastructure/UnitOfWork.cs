@@ -1,4 +1,4 @@
-﻿using LearningSystem.Module.Common.Infrastructure;
+using LearningSystem.Module.Common.Infrastructure;
 using LearningSystem.Module.Data.DatabaseContexts;
 using LearningSystem.Module.LearningPaths.Domain;
 using LearningSystem.Module.LearningPaths.Domain.Repositories;
@@ -8,9 +8,9 @@ namespace LearningSystem.Module.LearningPaths.Infrastructure
 {
     internal class UnitOfWork : BaseUnitOfWork, IUnitOfWork
     {
-        public ILearningPathRepository LearningPaths { get; internal set; }
+        public ILearningPathsRepository LearningPaths { get; internal set; }
 
-        public UnitOfWork(ApplicationDbContext context, IServiceProvider serviceProvider) : base(context, serviceProvider)
+        public UnitOfWork(ApplicationDbContext context, IServiceProvider serviceProvider): base(context, serviceProvider)
         {
         }
     }

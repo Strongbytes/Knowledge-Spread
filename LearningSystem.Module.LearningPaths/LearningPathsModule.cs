@@ -39,8 +39,8 @@ namespace LearningSystem.Module.LearningPaths
 
         private static void RegisterUnitOfWorkRepositories(ContainerBuilder builder)
         {
-            builder.RegisterType<LearningPathRepository>()
-                   .As<ILearningPathRepository>()
+            builder.RegisterType<LearningPathsRepository>()
+                   .As<ILearningPathsRepository>()
                    .InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>()
