@@ -12,8 +12,7 @@ namespace LearningSystem.Module.LearningPaths.Infrastructure
 
         public ITutorialsRepository Tutorials { get; internal set; }
 
-        public UnitOfWork(ApplicationDbContext context, IServiceProvider serviceProvider): base(context, serviceProvider)
-        {
-        }
+        public UnitOfWork(ApplicationDbContext context, IServiceProvider serviceProvider) : base(context, serviceProvider)
+        {}
     }
 }

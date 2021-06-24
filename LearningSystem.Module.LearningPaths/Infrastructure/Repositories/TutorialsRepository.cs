@@ -7,8 +7,7 @@ namespace LearningSystem.Module.LearningPaths.Infrastructure.Repositories
 {
     internal class TutorialsRepository : BaseRepository<Tutorial>, ITutorialsRepository
     {
-        public TutorialsRepository(ApplicationDbContext context): base(context)
-        {
-        }
+        public TutorialsRepository(ApplicationDbContext context) : base(context)
+        {}
     }
 }

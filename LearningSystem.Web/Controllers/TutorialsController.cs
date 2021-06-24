@@ -31,6 +31,7 @@ namespace LearningSystem.Web.Controllers
     public class TutorialsController : ControllerBase
     {
         private readonly IMediator _mediator;
+
         public TutorialsController(IMediator mediator)
         {
             _mediator = mediator;
@@ -57,13 +58,7 @@ namespace LearningSystem.Web.Controllers
         public async Task<IActionResult> Create(CreateTutorialRequestModel model)
         {
             TutorialDomainModel newEntity = await _mediator.Send(new CreateTutorialCommand(model));
-            var routeValue = new
-            {
-            id = newEntity.Id
-            }
-
-            ;
-            return CreatedAtAction(nameof(GetById), routeValue, newEntity);
+            return CreatedAtAction(nameof(GetById), new { id = newEntity.Id }, newEntity);
         }
 
         [HttpPut("{id}")]

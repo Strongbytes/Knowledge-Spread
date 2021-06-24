@@ -8,7 +8,6 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.Tutorials.Upd
     public class UpdateTutorialCommand : IRequest<TutorialDomainModel>
     {
         internal UpdateTutorialRequestModel Model { get; }
-
         internal int Id { get; }
 
         public UpdateTutorialCommand(int id, UpdateTutorialRequestModel model)

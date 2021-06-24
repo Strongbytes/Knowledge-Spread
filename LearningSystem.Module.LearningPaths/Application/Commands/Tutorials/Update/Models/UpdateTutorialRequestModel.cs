@@ -7,12 +7,9 @@ namespace LearningSystem.Module.LearningPaths.Application.Commands.Tutorials.Upd
     {
         [Required]
         public DateTime CreatedOn { get; set; }
-
         [Required]
         public DateTime LastModifiedOn { get; set; }
-
         public string Name { get; set; }
-
         public int LengthInMinutes { get; set; }
     }
 }
