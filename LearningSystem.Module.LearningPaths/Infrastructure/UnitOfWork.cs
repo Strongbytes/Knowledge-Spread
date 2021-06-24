@@ -10,6 +10,8 @@ namespace LearningSystem.Module.LearningPaths.Infrastructure
     {
         public ILearningPathsRepository LearningPaths { get; internal set; }
 
+        public ITutorialsRepository Tutorials { get; internal set; }
+
         public UnitOfWork(ApplicationDbContext context, IServiceProvider serviceProvider): base(context, serviceProvider)
         {
         }

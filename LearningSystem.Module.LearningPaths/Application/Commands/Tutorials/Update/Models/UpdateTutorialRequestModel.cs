@@ -1,13 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace LearningSystem.Module.LearningPaths.Domain.Models
+namespace LearningSystem.Module.LearningPaths.Application.Commands.Tutorials.Update.Models
 {
-    public class TutorialDomainModel
+    public class UpdateTutorialRequestModel
     {
-        [Required]
-        public int Id { get; set; }
-
         [Required]
         public DateTime CreatedOn { get; set; }
 

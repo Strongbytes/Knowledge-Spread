@@ -14,10 +14,6 @@ namespace LearningSystem.Module.Data.DatabaseContexts
         {
         }
 
-        public DbSet<LearningPath> Jokes { get; set; }
-
-        public DbSet<User> Users { get; set; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -52,5 +48,9 @@ namespace LearningSystem.Module.Data.DatabaseContexts
         }
 
         public DbSet<LearningPath> LearningPaths { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Tutorial> Tutorials { get; set; }
     }
 }

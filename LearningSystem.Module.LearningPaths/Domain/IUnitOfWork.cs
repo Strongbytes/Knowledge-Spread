@@ -6,5 +6,7 @@ namespace LearningSystem.Module.LearningPaths.Domain
     internal interface IUnitOfWork : IBaseUnitOfWork
     {
         ILearningPathsRepository LearningPaths { get; }
+
+        ITutorialsRepository Tutorials { get; }
     }
 }

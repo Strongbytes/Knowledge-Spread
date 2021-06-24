@@ -11,16 +11,6 @@ namespace LearningSystem.Module.LearningPaths
 {
     public class LearningPathsModule : Autofac.Module
     {
-        protected override void Load(ContainerBuilder builder)
-        {
-            base.Load(builder);
-            RegisterUnitOfWorkRepositories(builder);
-            builder.RegisterCommandHandlersAndValidators(ThisAssembly);
-            builder.RegisterProfile(ThisAssembly);
-            RegisterConfigurations(builder);
-            RegisterServices(builder);
-        }
-
         private static void RegisterConfigurations(ContainerBuilder builder)
         {
             builder.RegisterType<LearningPathsConfiguration>().AsSelf().SingleInstance();
@@ -32,10 +22,21 @@ namespace LearningSystem.Module.LearningPaths
             builder.RegisterType<ThirdPartyService>().As<IThirdPartyService>().InstancePerDependency();
         }
 
+        protected override void Load(ContainerBuilder builder)
+        {
+            base.Load(builder);
+            RegisterUnitOfWorkRepositories(builder);
+            builder.RegisterCommandHandlersAndValidators(ThisAssembly);
+            builder.RegisterProfile(ThisAssembly);
+            RegisterConfigurations(builder);
+            RegisterServices(builder);
+        }
+
         private void RegisterUnitOfWorkRepositories(ContainerBuilder builder)
         {
-            builder.RegisterType<LearningPathsRepository>().As<ILearningPathsRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<TutorialsRepository>().As<ITutorialsRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<LearningPathsRepository>().As<ILearningPathsRepository>().InstancePerLifetimeScope();
         }
     }
 }
